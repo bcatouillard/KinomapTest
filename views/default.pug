@@ -4,6 +4,7 @@ html(lang="fr")
         title Kinomap - #{title}
         block css
             link(rel='stylesheet', href='/css/style.css')
+            link(href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" rel="stylesheet")
         meta(name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes")
         meta(name="Content-Type" content="text/html; charset=utf-8")
         meta(name="description" content=description)
@@ -11,4 +12,21 @@ html(lang="fr")
     body
 
 
-    include includes/index.pug
+    section.section
+        div.container
+            div.carousel#carousel
+                each val, index in fetchedData
+                    - var n = 0
+                    while n < val.weight
+                        - n++
+                        div.card
+                            div(class=".card-image " + val.name+"Div")
+                                img(class=".item-"+ index + " " + val.name src=val.image alt=val.name)
+                            div.card-content
+                                h2=val.name
+                
+
+    
+
+    script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js")
+    script(type="text/javascript" src="./js/carousel.js")

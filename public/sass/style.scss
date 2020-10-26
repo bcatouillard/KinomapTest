@@ -1,1 +1,23 @@
 @import "../../node_modules/bulma/bulma.sass";
+
+.container {
+    .carousel {
+        .slider {
+            &-item {
+                img:hover{
+	                transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.adidasDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adidas {
+    width: 68%;
+}
