@@ -16,11 +16,14 @@ html(lang="fr")
         div.container
             div.carousel#carousel
                 each val, index in fetchedData
-                    div.card
-                        div(class=".card-image " + val.name+"Div")
-                            img(class=".item-"+ index + " " + val.name src=val.image alt=val.name)
-                        div.card-content
-                            h2=val.name
+                    - var n = 0
+                    while n < val.weight
+                        - n++
+                        div.card
+                            div(class=".card-image " + val.name+"Div")
+                                img(class=".item-"+ index + " " + val.name src=val.image alt=val.name)
+                            div.card-content
+                                h2=val.name
                 
 
     
