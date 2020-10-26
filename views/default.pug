@@ -12,10 +12,14 @@ html(lang="fr")
     body
 
 
-    include includes/index.pug
+    section.section
+        div.container
+            div.carousel#carousel
+                each val, index in fetchedData
+                    img(class=".item-"+ index src=val.image alt=val.name)
+                
 
-
-
+    
 
     script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js")
     script(type="text/javascript" src="./js/carousel.js")

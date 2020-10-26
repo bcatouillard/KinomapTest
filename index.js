@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const favicon = require('serve-favicon');
-const controller = require('./src/controllers/indexController');
+const controller = require('./src/controllers/indexController')
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,9 +26,5 @@ const server = app.listen(7000, () => {
 
 // Routing / to default.pug and set the title to Accueil
 app.get('/', (req, res) => {
-    controller.fillCarousel(req) 
-    res.render('default', {
-        title:  'Carousel',
-        description: 'Bienvenue sur le test Kinomap de Benjamin Catouillard',
-    });
+    controller.indexAction(req, res)
 });
