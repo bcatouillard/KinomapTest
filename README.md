@@ -4,6 +4,8 @@ This project is a test from Kinomap
 
 ## Install
 
+For the test I've remove the line about .env into the gitignore file
+
 In order to install this project you need to install dependencies
 
 ```
@@ -14,5 +16,10 @@ Then for runnning this you'll have to :
 
 ```
     npm run build:sass
-    npm start
+    npm run start
 ```
+
+
+## Author
+
+**Benjamin Catouillard**

@@ -1,13 +1,17 @@
 // Import Express Module
 const express = require('express');
 const app = express();
-const controller = require('./src/controllers/indexController');
+const favicon = require('serve-favicon');
+const controller = require('./src/controllers/indexController')
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set Pug as our template engine
 app.set('view engine', 'pug');
+
+// Give to Express the Favicon
+app.use(favicon(__dirname + '/public/images/kinomap.ico'));
 
 // serve static files from the `public` folder
 app.use(express.static(__dirname + '/public'));
@@ -22,8 +26,5 @@ const server = app.listen(7000, () => {
 
 // Routing / to default.pug and set the title to Accueil
 app.get('/', (req, res) => {
-    res.render('default', {
-        title:  'Carousel',
-        description: 'Bienvenue sur le test Kinomap de Benjamin Catouillard',
-    });
+    controller.indexAction(req, res)
 });
